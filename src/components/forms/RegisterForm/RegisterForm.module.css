@@ -1,0 +1,23 @@
+.backgroundImageContainer {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("../../assets/news-1172463_1280.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.main_container {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+}
+.textfield_container {
+  align-items: center;
+  justify-content: center;
+}
+.formContainer {
+  flex-direction: column !important;
+  justify-content: center;
+  min-width: 35rem;
+  align-items: center;
+}

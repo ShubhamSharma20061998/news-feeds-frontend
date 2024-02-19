@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.internal_padding {
+  padding: 1.5rem;
+}
+.border_radius {
+  border-radius: 1rem !important;
+}
+.css-wjh20t-MuiPagination-ul {
+  justify-content: center;
+}
+.FeedsbackgroundImageContainer {
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    url("./components/assets/15206849_10.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  min-height: 100vh;
+}
+.css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root.Mui-selected {
+  background-color: #1976d269 !important;
+  color: #fff;
+}

@@ -1,0 +1,8 @@
+.mainCard_container {
+  transition: all 0.2s linear !important;
+  transform: scale(1);
+}
+.mainCard_container:hover {
+  transform: scale(1.03);
+  transition: all 0.2s linear;
+}
