@@ -1,4 +1,4 @@
-# News-Feeds - Frontend
+# News - Feeds - Frontend
 
 Welcome to the frontend repository of **Project Name**. This project is built using the MERN (MongoDB, Express.js, React.js, Node.js) stack, with React and Material-UI for the frontend and Context API for state management. It features role-based authentication and authorization using JWT tokens, with separate roles for admin and user, and supports CRUD (Create, Read, Update, Delete) operations.
 
