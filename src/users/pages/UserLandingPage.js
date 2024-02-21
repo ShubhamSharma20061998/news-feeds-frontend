@@ -34,9 +34,7 @@ const UserLandingPage = () => {
   useEffect(() => {
     try {
       (async () => {
-        const feeds = await axios.get(
-          `http://localhost:3030/feeds/list/${categoryId}`
-        );
+        const feeds = await axios.get(`http://localhost:3030/feeds/list/${categoryId}`);
         feedDispatch({ type: "ADD_FEEDS", payload: feeds.data });
       })();
     } catch (error) {
@@ -50,28 +48,13 @@ const UserLandingPage = () => {
         <Grid container>
           <Grid item md={2}>
             <Typography variant="h4">Categories</Typography>
-            {feedsState.feeds.length === 0 ? (
-              <Spinner />
-            ) : (
-              <CategoryList
-                category={categoryState.categorydata}
-                handleCategoryChange={handleCategoryChange}
-              />
-            )}
-            <Button
-              variant="contained"
-              fullWidth
-              onClick={() => handleLogout(navigate)}
-            >
+            {feedsState.feeds.length === 0 ? <Spinner /> : <CategoryList category={categoryState.categorydata} handleCategoryChange={handleCategoryChange} />}
+            <Button variant="contained" fullWidth onClick={() => handleLogout(navigate)}>
               Logout
             </Button>
           </Grid>
           <Grid item md={10}>
-            {feedsState.feeds.length === 0 ? (
-              <Spinner />
-            ) : (
-              <DisplayFeeds feedsState={feedsState.feeds} />
-            )}
+            {feedsState.feeds.length === 0 ? <Spinner /> : <DisplayFeeds feedsState={feedsState.feeds} />}
           </Grid>
         </Grid>
       </Container>

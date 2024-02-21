@@ -23,12 +23,7 @@ const DisplayFeeds = ({ feedsState }) => {
         })}
         {Math.floor(feedsState.length / 12) > 0 && (
           <Grid item md={12}>
-            <Pagination
-              count={Math.floor(feedsState.length / 13)}
-              page={pageValue}
-              color="primary"
-              onChange={handlePaginationChange}
-            />
+            <Pagination count={Math.floor(feedsState.length / 13)} page={pageValue} color="primary" onChange={handlePaginationChange} />
           </Grid>
         )}
       </Grid>

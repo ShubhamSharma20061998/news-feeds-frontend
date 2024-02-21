@@ -30,49 +30,23 @@ const CategoryTextField = props => {
   return (
     <>
       <Grid item md={2}>
-        <TextField
-          variant="outlined"
-          fullWidth
-          value={stateTitle}
-          onChange={e => setstateTitle(e.target.value)}
-          disabled={isEdit}
-          label="Title"
-        />
+        <TextField variant="outlined" fullWidth value={stateTitle} onChange={e => setstateTitle(e.target.value)} disabled={isEdit} label="Title" />
       </Grid>
       <Grid item md={8}>
-        <TextField
-          label="URL"
-          variant="outlined"
-          fullWidth
-          value={stateUrl}
-          onChange={e => setStateUrl(e.target.value)}
-          disabled={isEdit}
-        />
+        <TextField label="URL" variant="outlined" fullWidth value={stateUrl} onChange={e => setStateUrl(e.target.value)} disabled={isEdit} />
       </Grid>
       <Grid item md={1}>
         {isEdit ? (
-          <IconButton
-            aria-label="edit"
-            className={styles.EditIcon}
-            onClick={e => setIsEdit(false)}
-          >
+          <IconButton aria-label="edit" className={styles.EditIcon} onClick={e => setIsEdit(false)}>
             <EditIcon />
           </IconButton>
         ) : (
-          <IconButton
-            aria-label="edit"
-            className={styles.EditIcon}
-            onClick={handleEdit}
-          >
+          <IconButton aria-label="edit" className={styles.EditIcon} onClick={handleEdit}>
             <DoneIcon />
           </IconButton>
         )}
 
-        <IconButton
-          aria-label="delete"
-          className={styles.DeleteIcon}
-          onClick={handleDelete}
-        >
+        <IconButton aria-label="delete" className={styles.DeleteIcon} onClick={handleDelete}>
           <DeleteIcon />
         </IconButton>
       </Grid>

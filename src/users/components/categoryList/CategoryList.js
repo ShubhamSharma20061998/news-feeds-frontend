@@ -16,11 +16,7 @@ const CategoryList = ({ category, handleCategoryChange }) => {
       <List component="nav" aria-label="category">
         {category.map((el, index) => {
           return (
-            <ListItemButton
-              key={index}
-              selected={selectedIndex === index}
-              onClick={() => handleListItemClick(index, el._id)}
-            >
+            <ListItemButton key={index} selected={selectedIndex === index} onClick={() => handleListItemClick(index, el._id)}>
               <ListItemText primary={el.title} />
             </ListItemButton>
           );

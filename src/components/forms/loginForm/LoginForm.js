@@ -23,6 +23,8 @@ const LoginForm = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
+    setFormErrors({});
+    setServerErrors({});
     const formData = { email, password };
     const formValidation = loginValidaion(formData);
     if (!_.isEmpty(formValidation)) {

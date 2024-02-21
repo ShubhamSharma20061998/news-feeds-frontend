@@ -16,16 +16,9 @@ const FeedCards = ({ title, description, link, pubDate }) => {
           {`${title.slice(0, 30)} ...`}
         </Typography>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          {description.length > 0 &&
-          !description.includes("<") &&
-          !description[0]?.includes("<")
-            ? `${description.slice(0, 50)}...` ||
-              `${description[0].slice(0, 50)}...`
-            : ""}
+          {description.length > 0 && !description.includes("<") && !description[0]?.includes("<") ? `${description.slice(0, 50)}...` || `${description[0].slice(0, 50)}...` : ""}
         </Typography>
-        <Typography variant="body2">
-          {new Date(pubDate).toLocaleString()}
-        </Typography>
+        <Typography variant="body2">{new Date(pubDate).toLocaleString()}</Typography>
       </CardContent>
       <CardActions>
         <Link to={link}>

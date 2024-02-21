@@ -25,6 +25,8 @@ const RegisterForm = () => {
   // Form submit handler
   const handleSubmit = async e => {
     e.preventDefault();
+    setFormErrors({});
+    setServerErrors({});
     const formData = { name, email, password };
     const formValidation = registrationValidaion(formData);
     if (!_.isEmpty(formValidation)) {

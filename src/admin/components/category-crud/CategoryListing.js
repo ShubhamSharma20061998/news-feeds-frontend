@@ -41,15 +41,11 @@ const CategoryListing = () => {
   const updateCategoryListing = useCallback(
     async (id, formData) => {
       try {
-        const result = await axios.put(
-          `http://localhost:3030/category/edit/${id}`,
-          formData,
-          {
-            headers: {
-              Authorization: JSON.parse(localStorage.getItem("token")).token,
-            },
-          }
-        );
+        const result = await axios.put(`http://localhost:3030/category/edit/${id}`, formData, {
+          headers: {
+            Authorization: JSON.parse(localStorage.getItem("token")).token,
+          },
+        });
         categoryDispatch({ type: "EDIT_CATEGORY", payload: result.data });
       } catch (err) {
         console.log(err);
@@ -61,14 +57,11 @@ const CategoryListing = () => {
   const deleteCategory = useCallback(
     async id => {
       try {
-        const result = await axios.delete(
-          `http://localhost:3030/category/remove/${id}`,
-          {
-            headers: {
-              Authorization: JSON.parse(localStorage.getItem("token")).token,
-            },
-          }
-        );
+        const result = await axios.delete(`http://localhost:3030/category/remove/${id}`, {
+          headers: {
+            Authorization: JSON.parse(localStorage.getItem("token")).token,
+          },
+        });
         categoryDispatch({ type: "DELETE_CATEGORY", payload: result.data });
       } catch (error) {
         console.log(error);
@@ -81,15 +74,11 @@ const CategoryListing = () => {
     e.preventDefault();
     const formdata = { title: titleState, url: urlState };
     try {
-      const result = await axios.post(
-        "http://localhost:3030/category/create",
-        formdata,
-        {
-          headers: {
-            Authorization: JSON.parse(localStorage.getItem("token")).token,
-          },
-        }
-      );
+      const result = await axios.post("http://localhost:3030/category/create", formdata, {
+        headers: {
+          Authorization: JSON.parse(localStorage.getItem("token")).token,
+        },
+      });
       categoryDispatch({ type: "INSERT_CATEGORY", payload: result.data });
       handleClose();
     } catch (error) {
@@ -105,34 +94,15 @@ const CategoryListing = () => {
         </Typography>
         <Grid container className={styles.form_innerContainer}>
           {categoryState.categorydata.map((el, i) => {
-            return (
-              <CategoryTextField
-                {...el}
-                updateCategoryListing={updateCategoryListing}
-                deleteCategory={deleteCategory}
-                key={i}
-              />
-            );
+            return <CategoryTextField {...el} updateCategoryListing={updateCategoryListing} deleteCategory={deleteCategory} key={i} />;
           })}
           <Grid item md={3}>
-            <Button
-              variant="contained"
-              startIcon={<AddCircleOutlineIcon />}
-              fullWidth
-              className={styles.add_btn}
-              onClick={handleOpen}
-            >
+            <Button variant="contained" startIcon={<AddCircleOutlineIcon />} fullWidth className={styles.add_btn} onClick={handleOpen}>
               Add Category
             </Button>
           </Grid>
           <Grid item md={3}>
-            <Button
-              variant="contained"
-              startIcon={<LogoutIcon />}
-              fullWidth
-              className={styles.logout_btn}
-              onClick={() => handleLogout(navigate)}
-            >
+            <Button variant="contained" startIcon={<LogoutIcon />} fullWidth className={styles.logout_btn} onClick={() => handleLogout(navigate)}>
               logout
             </Button>
           </Grid>
@@ -155,29 +125,12 @@ const CategoryListing = () => {
         >
           <Fade in={open}>
             <Box sx={style}>
-              <Typography
-                id="transition-modal-title"
-                variant="h6"
-                component="h2"
-                marginBottom={"0.5rem"}
-              >
+              <Typography id="transition-modal-title" variant="h6" component="h2" marginBottom={"0.5rem"}>
                 Add Category
               </Typography>
               <form onSubmit={handleAddCategory}>
-                <TextField
-                  variant="outlined"
-                  fullWidth
-                  label="Title"
-                  className={styles.margin_Bottom}
-                  onChange={e => setTitleState(e.target.value)}
-                />
-                <TextField
-                  variant="outlined"
-                  fullWidth
-                  label="URL"
-                  onChange={e => setUrlState(e.target.value)}
-                  className={styles.margin_Bottom}
-                />
+                <TextField variant="outlined" fullWidth label="Title" className={styles.margin_Bottom} onChange={e => setTitleState(e.target.value)} />
+                <TextField variant="outlined" fullWidth label="URL" onChange={e => setUrlState(e.target.value)} className={styles.margin_Bottom} />
                 <Button variant="contained" fullWidth type="submit">
                   save
                 </Button>

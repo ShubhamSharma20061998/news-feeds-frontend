@@ -13,8 +13,7 @@
   justify-content: center;
 }
 .FeedsbackgroundImageContainer {
-  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-    url("./components/assets/15206849_10.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("./components/assets/15206849_10.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
