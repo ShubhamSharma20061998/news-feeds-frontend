@@ -1,11 +1,4 @@
-import {
-  Button,
-  Container,
-  Grid,
-  Paper,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Button, Container, Grid, Paper, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
 import loginImage from "../../assets/undraw_Newspaper_re_syf5.png";
 import styles from "./LoginForm.module.css";
@@ -32,10 +25,7 @@ const LoginForm = () => {
       return;
     }
     try {
-      const result = await axios.post(
-        "http://localhost:3030/users/login",
-        formData
-      );
+      const result = await axios.post("http://localhost:3030/users/login", formData);
       localStorage.setItem("token", JSON.stringify(result.data));
       const token = JSON.parse(localStorage.getItem("token"));
       if (token.role === "admin") {
@@ -82,43 +72,19 @@ const LoginForm = () => {
             <Grid item md={7} className="internal_padding">
               <form onSubmit={handleSubmit}>
                 {/* Container for text fields */}
-                <Grid
-                  container
-                  className={styles.textfield_container}
-                  spacing={3}
-                >
+                <Grid container className={styles.textfield_container} spacing={3}>
                   {/* Grid item for login form title */}
                   <Grid item md={8}>
                     <Typography variant="h3">Login Form</Typography>
                   </Grid>
                   {/* Grid item for email text field */}
-                  {textfield.map(
-                    ({ name, value, label, handleChange, type }, i) => {
-                      return (
-                        <Grid item md={8} key={i}>
-                          <TextField
-                            fullWidth
-                            id={label}
-                            variant="standard"
-                            autoComplete="off"
-                            type={type}
-                            label={label}
-                            value={value}
-                            onChange={handleChange}
-                            error={
-                              !_.isEmpty(serverErrors) ||
-                              Boolean(formErrors[name])
-                            }
-                            helperText={
-                              (!_.isEmpty(serverErrors) &&
-                                serverErrors[i]?.msg) ||
-                              (!_.isEmpty(formErrors) && formErrors[name])
-                            }
-                          />
-                        </Grid>
-                      );
-                    }
-                  )}
+                  {textfield.map(({ name, value, label, handleChange, type }, i) => {
+                    return (
+                      <Grid item md={8} key={i}>
+                        <TextField fullWidth id={label} variant="standard" autoComplete="off" type={type} label={label} value={value} onChange={handleChange} error={!_.isEmpty(serverErrors) || Boolean(formErrors[name])} helperText={(!_.isEmpty(serverErrors) && serverErrors[i]?.msg) || (!_.isEmpty(formErrors) && formErrors[name])} />
+                      </Grid>
+                    );
+                  })}
                   {/* Grid item for login button */}
                   <Grid item md={8}>
                     <Button variant="contained" fullWidth type="submit">

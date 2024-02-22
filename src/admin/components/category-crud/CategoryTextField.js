@@ -1,3 +1,4 @@
+// Importing necessary libraries and components
 import React, { useEffect, useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -6,27 +7,35 @@ import styles from "../../pages/Admin.module.css";
 import { Grid, TextField } from "@mui/material";
 import DoneIcon from "@mui/icons-material/Done";
 
+// Component for Category Text Field
 const CategoryTextField = props => {
+  // Destructuring props
   const { _id, title, url, updateCategoryListing, deleteCategory } = props;
+
+  // State variables
   const [stateTitle, setstateTitle] = useState("");
   const [stateUrl, setStateUrl] = useState("");
   const [isEdit, setIsEdit] = useState(true);
 
+  // UseEffect to set initial state
   useEffect(() => {
     if (title) setstateTitle(title);
     if (url) setStateUrl(url);
   }, []);
 
+  // Function to handle edit operation
   const handleEdit = () => {
     const formData = { title: stateTitle, url: stateUrl };
     updateCategoryListing(_id, formData);
     setIsEdit(true);
   };
 
+  // Function to handle delete operation
   const handleDelete = () => {
     deleteCategory(_id);
   };
 
+  // Render component
   return (
     <>
       <Grid item md={2}>
@@ -37,15 +46,17 @@ const CategoryTextField = props => {
       </Grid>
       <Grid item md={1}>
         {isEdit ? (
+          // Edit button
           <IconButton aria-label="edit" className={styles.EditIcon} onClick={e => setIsEdit(false)}>
             <EditIcon />
           </IconButton>
         ) : (
+          // Done button
           <IconButton aria-label="edit" className={styles.EditIcon} onClick={handleEdit}>
             <DoneIcon />
           </IconButton>
         )}
-
+        // Delete button
         <IconButton aria-label="delete" className={styles.DeleteIcon} onClick={handleDelete}>
           <DeleteIcon />
         </IconButton>
@@ -54,4 +65,5 @@ const CategoryTextField = props => {
   );
 };
 
+// Exporting the component
 export default CategoryTextField;
